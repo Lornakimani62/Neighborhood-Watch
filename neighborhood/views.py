@@ -14,16 +14,26 @@ def index(request):
         if not request.user.is_authenticated:
             return redirect('/accounts/login/')
         current_user=request.user
-        profile =Profile.objects.get(username=current_user)
     except ObjectDoesNotExist:
-        return redirect('create-profile')
+        return redirect('profile')
 
     return render(request,'index.html')
 
 @login_required(login_url='/accounts/login/')
 def profile(request):
     current_user=request.user
-    profile=Profile.objects.get(username=current_user)
+    profile=Profile.objects.filter(name=current_user).first()
 
-    return render(request,'profile.html',{"profile":profile})
+    if request.method=="POST":
+        form =ProfileForm(request.POST,instance=profile,files=request.FILES)
+        if form.is_valid():
+            profile = form.save(commit = False)
+            profile.name = current_user
+            profile.save()
+        return redirect('/')
+
+    else:
+
+        form = ProfileForm()
+    return render(request,'profile.html',{"form":form})
 
