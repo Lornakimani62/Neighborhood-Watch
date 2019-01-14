@@ -4,6 +4,29 @@ from tinymce.models import HTMLField
 from django.db.models import Q
 import datetime as dt
 
+class Neighborhood(models.Model):
+    '''Displays the avalable neighborhoods in the area allowing users to choose the neighborhoods
+        '''
+    neighborhood_name = models.CharField(max_length=30)
+
+    def create_neighborhood(self):
+        self.save()
+
+    def delete_neighborhood(self):
+        self.delete()
+
+    @classmethod
+    def find_neighborhood(cls,neighborhood_id):
+        neighborhood = cls.objects.get(id=neighborhood_id)
+        return neighborhood
+
+    def update_neighborhood(self,name):
+        self.name = name
+        self.save()
+
+
+    def __str__(self):
+        return f'{self.neighborhood_name}'
 
 class Profile(models.Model):
     '''Displays the user profile and allows the user to update it
@@ -12,7 +35,7 @@ class Profile(models.Model):
     email = models.EmailField()
     contact = models.CharField(max_length=100)
     address =models.CharField(max_length=100)
-    neighbourhood = models.ForeignKey(neighborhood,on_delete=models.CASCADE)
+    neighbourhood =models.ForeignKey(Neighborhood ,on_delete=models.CASCADE)
 
     def save_profile(self):
         self.save()
@@ -30,7 +53,7 @@ class Business(models.Model):
     business_name = models.CharField(max_length=100)
     email = models.EmailField()
     description = HTMLField()
-    neighbourhood = models.ForeignKey(neighbourhood,on_delete=models.CASCADE)
+    neighbourhood = models.ForeignKey(Neighborhood,on_delete=models.CASCADE)
 
     def create_business():
         self.save()
@@ -69,7 +92,7 @@ class Notification(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE)
     title=models.CharField(max_length=75)
     description=models.CharField(max_length=250)
-    neighbourhood = models.ForeignKey(neighbourhood,on_delete=models.CASCADE)
+    neighbourhood = models.ForeignKey(Neighborhood,on_delete=models.CASCADE)
     post_date = models.DateTimeField(auto_now_add=True)
 
 
@@ -77,27 +100,5 @@ class Notification(models.Model):
         return self.title
 
 
-class Neighborhood(models.Model):
-    '''Displays the avalable neighborhoods in the area allowing users to choose the neighborhoods
-        '''
-     neighborhood_name = models.CharField(max_length=30)
 
-    def create_neighborhood(self):
-        self.save()
-
-    def delete_neighborhood(self):
-        self.delete()
-
-    @classmethod
-    def find_neighborhood(cls,neighborhood_id):
-        neighborhood = cls.objects.get(id=neighborhood_id)
-        return neighborhood
-
-    def update_neighborhood(self,name):
-        self.name = name
-        self.save()
-
-
-    def __str__(self):
-        return f'{self.neighborhood_name}'
 
