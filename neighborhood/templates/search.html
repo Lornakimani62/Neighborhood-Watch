@@ -1,0 +1,24 @@
+{%extends "base.html"%}
+{%load bootstrap4%}
+{% load staticfiles %}
+{%block content%}
+<div id="about" class="section md-padding">
+    <div class="container">
+        <div class="row">
+            {% for search in searches %}
+            <div class="col-md-4 col-sm-6 col-lg-4 col-xs-6">
+                <div class="about">
+                    <h3>{{search.email}}</h3>
+                    <h3>{{search.description}}</h3>
+                    <h3>{{seach.business_name}}</h3>
+                </div>
+            </div>
+            {% empty %}
+
+            <h3 class="text-center">There are no businesses with the given name</h3>
+        
+           {% endfor %}
+        </div>
+    </div>
+</div>
+{%endblock%}

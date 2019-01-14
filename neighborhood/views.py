@@ -92,8 +92,17 @@ def post_notify(request):
         form = NotifyForm()
     return render(request,'post_note.html',{"form":form})
 
+# Allows users to search for businesses around the area
 @login_required(login_url='/accounts/login/')
 def search(request):
-    current_user=request.user
+        try:
+            if 'business' in request.GET and request.GET['business']:
+                search_term = request.GET.get('business')
+                searches= Business.objects.get(business_name__icontains=search_term)
+                return render(request,'search.html',{'searches':searches})
 
-    return render(request,'search.html')
+        except (ValueError,Business.DoesNotExist):
+            message = "You haven't searched for any term"
+            return render(request, 'search.html',{"message":message})
+
+        return render(request,'search.html',{'message':message,'searches':searches})
