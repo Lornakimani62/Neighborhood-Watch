@@ -91,3 +91,9 @@ def post_notify(request):
 
         form = NotifyForm()
     return render(request,'post_note.html',{"form":form})
+
+@login_required(login_url='/accounts/login/')
+def search(request):
+    current_user=request.user
+
+    return render(request,'search.html')

@@ -11,6 +11,7 @@ urlpatterns=[
     url(r'^contact/',views.contact,name='contact'),
     url(r'^notifications/', views.notify, name='notify'),
     url(r'^post_notify/', views.post_notify,name='post_notify'),
+    url(r'^search/',views.search,name='search'),
 
 ]
 
