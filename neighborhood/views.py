@@ -68,3 +68,26 @@ def contact(request):
     contacts = Contact.objects.all()
 
     return render(request,'contact.html',{'contacts':contacts})
+
+# view function that allows users to view notifications
+@login_required(login_url='/accounts/login')
+def notify(request):
+    current_user=request.user
+    notifications=Notification.objects.all()
+
+    return render(request,'notify.html',{'notifications': notifications})
+
+@login_required(login_url='/accounts/login/')
+def post_notify(request):
+    current_user=request.user
+   
+    if request.method=="POST":
+        form =NotifyForm(request.POST,files=request.FILES)
+        if form.is_valid():
+            notices = form.save(commit = False)
+            notices.save()
+        return redirect('/notifications')
+    else:
+
+        form = NotifyForm()
+    return render(request,'post_note.html',{"form":form})

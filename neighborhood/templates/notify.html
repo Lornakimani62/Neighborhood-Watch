@@ -1,0 +1,24 @@
+{%extends "base.html"%}
+{%load bootstrap4%}
+{% load staticfiles %}
+{%block content%}
+<div id="about" class="section md-padding">
+    <div class="container">
+        <div class="row">
+            {% for notification in notifications %}
+            <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+                <div class="about">
+                    <h3>{{notification.title}}</h3>
+                    <h3>{{notification.description}}</h3>
+                    <h3>{{notification.location}}</h3>
+                </div>
+            </div>
+            {% empty %}
+
+            <h3 class="text-center">There are no Posts yet</h3>
+        
+           {% endfor %}
+        </div>
+    </div>
+</div>
+{%endblock%}

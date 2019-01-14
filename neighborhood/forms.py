@@ -11,3 +11,7 @@ class BusinessForm(forms.ModelForm):
         model=Business
         exclude=['id']
 
+class NotifyForm(forms.ModelForm):
+    class Meta:
+        model=Notification
+        exclude=['post_date']

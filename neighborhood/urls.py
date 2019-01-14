@@ -9,6 +9,8 @@ urlpatterns=[
     url(r'^business/',views.business,name='business'),
     url(r'^post_business/',views.post_business,name='post'),
     url(r'^contact/',views.contact,name='contact'),
+    url(r'^notifications/', views.notify, name='notify'),
+    url(r'^post_notify/', views.post_notify,name='post_notify'),
 
 ]
 

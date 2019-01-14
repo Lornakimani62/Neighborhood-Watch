@@ -56,8 +56,21 @@ class Contact(models.Model):
 
     def delete_contact():
         self.delete()
+    
+    def __str__(self):
+        return self.title
 
 
+class Notification(models.Model):
+    '''Displays notifications for the people n the neighbor hood
+        '''
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
+    title=models.CharField(max_length=75)
+    description=models.CharField(max_length=250)
+    location=models.CharField(max_length=75)
+    post_date = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return self.title
     
 
