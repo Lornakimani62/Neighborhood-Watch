@@ -4,8 +4,10 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns=[
-    url(r'^$' ,views.index, name='home'),
+    url(r'^$' ,views.index, name='index'),
     url(r'^accounts/profile/',views.profile, name='profile'),
+    url(r'^business/',views.business,name='business'),
+    url(r'^post_business/',views.post_business,name='post'),
 ]
 
 if settings.DEBUG:

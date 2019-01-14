@@ -6,3 +6,8 @@ class ProfileForm(forms.ModelForm):
         model=Profile
         exclude=['name']
 
+class BusinessForm(forms.ModelForm):
+    class Meta:
+        model=Business
+        exclude=['id']
+

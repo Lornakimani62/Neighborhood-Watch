@@ -23,3 +23,24 @@ class Profile(models.Model):
         return self.name
 
 
+class Business(models.Model):
+    '''Displays the businesses around the given area
+        '''
+    business_name = models.CharField(max_length=100)
+    email = models.EmailField()
+    description = HTMLField()
+
+    def create_business():
+        self.save()
+
+    def delete_business():
+        self.delete()
+
+    @classmethod
+    def find_business(cls,search_term):
+        businesses = cls.object.filter(business_name__icontains=search_term)
+        return businesses
+    
+
+    
+

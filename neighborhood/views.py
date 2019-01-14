@@ -37,3 +37,26 @@ def profile(request):
         form = ProfileForm()
     return render(request,'profile.html',{"form":form})
 
+# Posts all the businesses in the given neighborhood
+@login_required(login_url='/accounts/login/')
+def business(request):
+    current_user=request.user
+    posts=Business.objects.all()
+    return render(request,'business.html',{'posts':posts})
+
+# Provides the user the ability to post businesses in their neighbohood
+@login_required(login_url='/accounts/login/')
+def post_business(request):
+    current_user=request.user
+   
+    if request.method=="POST":
+        form =BusinessForm(request.POST,files=request.FILES)
+        if form.is_valid():
+            business = form.save(commit = False)
+            business.save()
+        return redirect('/business')
+
+    else:
+
+        form = BusinessForm()
+    return render(request,'post_business.html',{"form":form})
