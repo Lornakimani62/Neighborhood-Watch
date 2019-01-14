@@ -40,7 +40,24 @@ class Business(models.Model):
     def find_business(cls,search_term):
         businesses = cls.object.filter(business_name__icontains=search_term)
         return businesses
-    
+
+
+class Contact(models.Model):
+    '''Displays the contact information for health services around police around the area
+        '''
+    title=models.CharField(max_length=75)
+    name=models.CharField(max_length=100)
+    location=models.CharField(max_length=75)
+    email=models.EmailField()
+    contact=models.CharField(max_length=50)
+
+    def create_contact():
+        self.save()
+
+    def delete_contact():
+        self.delete()
+
+
 
     
 

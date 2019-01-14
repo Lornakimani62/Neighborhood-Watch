@@ -60,3 +60,11 @@ def post_business(request):
 
         form = BusinessForm()
     return render(request,'post_business.html',{"form":form})
+
+# View function to display police and health services information
+@login_required(login_url='/accounts/login')
+def contact(request):
+    current_user=request.user
+    contacts = Contact.objects.all()
+
+    return render(request,'contact.html',{'contacts':contacts})

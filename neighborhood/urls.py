@@ -8,6 +8,8 @@ urlpatterns=[
     url(r'^accounts/profile/',views.profile, name='profile'),
     url(r'^business/',views.business,name='business'),
     url(r'^post_business/',views.post_business,name='post'),
+    url(r'^contact/',views.contact,name='contact'),
+
 ]
 
 if settings.DEBUG:
