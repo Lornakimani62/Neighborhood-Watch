@@ -77,6 +77,7 @@ def notify(request):
 
     return render(request,'notify.html',{'notifications': notifications})
 
+# Allows users to post notifications
 @login_required(login_url='/accounts/login/')
 def post_notify(request):
     current_user=request.user
