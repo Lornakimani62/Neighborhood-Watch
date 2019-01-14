@@ -44,12 +44,12 @@
 				<!--  Main navigation  -->
 				<ul class="main-nav nav navbar-nav navbar-right">
                     <li><a href="{% url 'index' %}">Home</a></li>
-                    <li><a href="{% url 'profile' %}">Profile</a></li>
+                    <li><a href="{% url 'profile' %}">Update_Profile</a></li>
 					<li><a href="{% url 'post' %}">Post_Business</a></li>
 					<li><a href="{% url 'post_notify' %}">Post_Notification</a></li>
 					<li><a href="{% url 'contact' %}">Contact Info</a></li>
+					<li><a href="{% url 'profile' %}">Change Neighborhood</a></li>
                     <li><a href="/logout">Logout</a></li>
-					<li><a href="accounts/login">Login/Register</a></li>
 					<li>
 						<form class="navbar-form" role="search" action="{% url 'search' %}">
 							<div class="input-group">
@@ -63,21 +63,26 @@
 		</nav>
 		<!-- /Nav -->
 
-		<!-- home wrapper -->
-		<div class="home-wrapper">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-10 col-md-offset-1">
-						<div class="home-content">
+			<!-- home wrapper -->
+			<div class="home-wrapper">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-10 col-md-offset-1">
+								<div class="home-content">
+									<h1 class="white-text">Welcome to mtaani whose main goal is...</h1>
+									<h3>to keep you upto date with the latest news from you hood</h3>
+									<p class="white-text">"Sometimes friends become more valuable than our own family members so interract with your neighbors now"</p>
+									<button class="white-btn"><a href="{% url 'post_notify' %}">Get Started!</a></button>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-		<!-- /home wrapper -->
+				<!-- /home wrapper -->
 
 	</header>
-    <!-- /Header -->
+	<!-- /Header -->
+
     	<!-- Preloader -->
 	<div id="preloader">
 		<div class="preloader">

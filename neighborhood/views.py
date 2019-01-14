@@ -99,7 +99,7 @@ def search(request):
         try:
             if 'business' in request.GET and request.GET['business']:
                 search_term = request.GET.get('business')
-                searches= Business.objects.get(business_name__icontains=search_term)
+                searches= Business.objects.filter(business_name__icontains=search_term)
                 return render(request,'search.html',{'searches':searches})
 
         except (ValueError,Business.DoesNotExist):
