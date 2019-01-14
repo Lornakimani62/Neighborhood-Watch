@@ -35,7 +35,7 @@ class Profile(models.Model):
     email = models.EmailField()
     contact = models.CharField(max_length=100)
     address =models.CharField(max_length=100)
-    neighbourhood =models.ForeignKey(Neighborhood ,on_delete=models.CASCADE)
+    neighbourhood =models.ForeignKey(Neighborhood ,on_delete=models.CASCADE,null=True,blank=True)
 
     def save_profile(self):
         self.save()
@@ -53,7 +53,7 @@ class Business(models.Model):
     business_name = models.CharField(max_length=100)
     email = models.EmailField()
     description = HTMLField()
-    neighbourhood = models.ForeignKey(Neighborhood,on_delete=models.CASCADE)
+    neighbourhood = models.ForeignKey(Neighborhood,null=True,blank=True,on_delete=models.CASCADE)
 
     def create_business():
         self.save()
@@ -92,7 +92,7 @@ class Notification(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE)
     title=models.CharField(max_length=75)
     description=models.CharField(max_length=250)
-    neighbourhood = models.ForeignKey(Neighborhood,on_delete=models.CASCADE)
+    neighbourhood = models.ForeignKey(Neighborhood,on_delete=models.CASCADE,null=True,blank=True)
     post_date = models.DateTimeField(auto_now_add=True)
 
 
