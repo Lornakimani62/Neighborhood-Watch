@@ -19,6 +19,11 @@ class NeighborhoodTestClass(TestCase):
         neighborhoods = Neighborhood.objects.all()
         self.assertTrue(len(neighborhoods) == 0)
 
+    def test_find_neighborhood(self):
+        self.new_neighborhood.create_neighborhood()
+        neighborhood = Neighborhood.find_neighborhood(1)
+        self.assertEqual(neighborhood.neighborhood_name,'Test Neighborhood')
+
 
 
 class BusinessTestClass(TestCase):
