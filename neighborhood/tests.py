@@ -14,6 +14,12 @@ class NeighborhoodTestClass(TestCase):
         neighborhoods = Neighborhood.objects.all()
         self.assertTrue(len(neighborhoods) > 0)
 
+    def test_delete_neighborhood(self):
+        self.new_neighborhood.delete_neighborhood()
+        neighborhoods = Neighborhood.objects.all()
+        self.assertTrue(len(neighborhoods) == 0)
+
+
 
 class BusinessTestClass(TestCase):
     def setUp(self):
