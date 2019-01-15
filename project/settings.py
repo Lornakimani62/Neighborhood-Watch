@@ -10,21 +10,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
-import os
-import django_heroku
-import dj_database_url
-from decouple import config,Csv
-
-SECRET_KEY='342s(s(!hsjd998sde8$=o4$3m!(o+kce2^97kp6#ujhi'
-DEBUG=True
-DB_NAME='tribune'
-DB_USER='user'
-DB_PASSWORD='password'
-DB_HOST='127.0.0.1'
-MODE='dev'
-ALLOWED_HOSTS='<app name in heroku>.herokuapp.com'
-DISABLE_COLLECTSTATIC=1
-# We then edit settings.py to enable decouple to use the .env configurations.
 
 import os
 import django_heroku
