@@ -12,17 +12,6 @@ class Neighborhood(models.Model):
     def create_neighborhood(self):
         self.save()
 
-    def delete_neighborhood(self):
-        self.delete()
-
-    @classmethod
-    def find_neighborhood(cls,neighborhood_id):
-        neighborhood = cls.objects.get(id=neighborhood_id)
-        return neighborhood
-
-    def update_neighborhood(self,name):
-        self.name = name
-        self.save()
 
 
     def __str__(self):
