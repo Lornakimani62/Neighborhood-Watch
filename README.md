@@ -2,7 +2,7 @@
 ## Description
 web application that allows you to be in the loop about everything happening in your neighborhood. From contact information of different handyman to meeting announcements or even alerts.
 ## Link to Deployed site
-Here is the a link to the application
+Here is the a[link](https://lornaneighborhood.herokuapp.com/) to the application
 
 # Setup and installations
 ## Prerequisites
