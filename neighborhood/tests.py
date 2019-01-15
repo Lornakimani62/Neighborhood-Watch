@@ -24,6 +24,11 @@ class NeighborhoodTestClass(TestCase):
         neighborhood = Neighborhood.find_neighborhood(1)
         self.assertEqual(neighborhood.neighborhood_name,'Test Neighborhood')
 
+    def test_update_neighborhood(self):
+        self.new_neighborhood.create_neighborhood()
+        neighborhood = Neighborhood.find_neighborhood(1)
+        neighborhood.neighborhood_name = 'Another Neighborhood'
+        self.assertEqual(neighborhood.neighborhood_name,'Another Neighborhood')
 
 
 class BusinessTestClass(TestCase):
