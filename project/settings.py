@@ -24,7 +24,7 @@ DB_HOST='127.0.0.1'
 MODE='dev'
 ALLOWED_HOSTS='<app name in heroku>.herokuapp.com'
 DISABLE_COLLECTSTATIC=1
-We then edit settings.py to enable decouple to use the .env configurations.
+# We then edit settings.py to enable decouple to use the .env configurations.
 
 import os
 import django_heroku
